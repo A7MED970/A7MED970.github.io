@@ -1,0 +1,939 @@
+/* CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px; /* Offset for sticky header */
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #e2e8f0;
+    background-color: #0f172a;
+    font-weight: 400;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+.header {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: #f1f5f9;
+    padding: 2rem 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid #334155;
+}
+
+.name {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #f8fafc;
+}
+
+.tagline {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    font-weight: 300;
+    color: #cbd5e1;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: #f1f5f9;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    background-color: rgba(15, 23, 42, 0.3);
+}
+
+.nav-link:hover {
+    background-color: rgba(51, 65, 85, 0.8);
+    border-color: #64748b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Content */
+.main {
+    margin-top: 0;
+}
+
+.section {
+    padding: 5rem 0;
+    border-bottom: 1px solid #1e293b;
+    scroll-margin-top: 120px; /* Additional offset for better navigation */
+}
+
+.section:nth-child(even) {
+    background-color: #1e293b;
+}
+
+.section-title {
+    font-size: 2.75rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #f8fafc;
+    position: relative;
+    font-weight: 600;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+/* About Section */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    line-height: 1.8;
+    color: #cbd5e1;
+}
+
+/* Education Section */
+.education-item {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #334155;
+    padding: 2.5rem;
+    border-radius: 12px;
+    border-left: 4px solid #3b82f6;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.education-degree {
+    font-size: 1.5rem;
+    color: #f8fafc;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.education-school {
+    font-size: 1.2rem;
+    color: #3b82f6;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.education-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.education-year {
+    background-color: #1e293b;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    border: 1px solid #475569;
+    align-self: flex-start;
+}
+
+.education-progress-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.education-progress-container {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.circular-progress-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.circular-progress {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg) scaleY(-1);
+}
+
+.progress-ring-circle {
+    transition: stroke-dasharray 0.35s;
+}
+
+.progress-ring-bar {
+    stroke-dasharray: 326.56; /* 2 * π * 52 */
+    stroke-dashoffset: 326.56; /* Start with full offset (empty circle) */
+    stroke-linecap: round;
+    transform-origin: center;
+}
+
+.progress-text {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: #f8fafc;
+}
+
+.progress-value {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #3b82f6;
+    margin-bottom: 0.25rem;
+}
+
+.progress-percentage {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #60a5fa;
+    margin-top: 0.25rem;
+}
+
+.progress-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.progress-label {
+    min-width: 120px;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    font-weight: 500;
+}
+
+.progress-bar {
+    flex: 1;
+    min-width: 150px;
+    height: 8px;
+    background-color: #1e293b;
+    border-radius: 4px;
+    border: 1px solid #475569;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);
+    border-radius: 3px;
+    transition: width 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    width: 0%; /* Start at 0% for animation */
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.progress-percent {
+    min-width: 40px;
+    font-size: 0.8rem;
+    color: #3b82f6;
+    font-weight: 600;
+    text-align: right;
+}
+
+.education-achievements p {
+    color: #cbd5e1;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill-category {
+    background-color: #334155;
+    padding: 2rem;
+    border-radius: 12px;
+    border-top: 3px solid #3b82f6;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.skill-category-title {
+    font-size: 1.3rem;
+    color: #f8fafc;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.skill-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.skill-item-progress {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background-color: #1e293b;
+    border-radius: 8px;
+    border: 1px solid #475569;
+    transition: all 0.3s ease;
+}
+
+.skill-item-progress:hover {
+    background-color: #0f172a;
+    border-color: #3b82f6;
+    transform: translateY(-2px);
+}
+
+.skill-name {
+    min-width: 100px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #cbd5e1;
+}
+
+.skill-item-progress .progress-bar {
+    flex: 1;
+    min-width: 120px;
+    height: 6px;
+}
+
+.skill-item-progress .progress-percent {
+    min-width: 35px;
+    font-size: 0.75rem;
+}
+
+/* GPA Section */
+.gpa {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: #f1f5f9;
+    display: none; /* Hidden since GPA is now in Education section */
+}
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background: #334155;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid #3b82f6;
+    border: 1px solid #475569;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    border-color: #3b82f6;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    color: #f8fafc;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.project-description {
+    color: #cbd5e1;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.project-tech {
+    font-size: 0.9rem;
+    color: #3b82f6;
+    font-weight: 500;
+    background-color: #1e293b;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    border: 1px solid #475569;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.github-link {
+    background-color: #1e293b;
+    color: #cbd5e1;
+    border-color: #475569;
+}
+
+.github-link:hover {
+    background-color: #0f172a;
+    color: #f8fafc;
+    border-color: #64748b;
+}
+
+.demo-link {
+    background-color: #3b82f6;
+    color: #f8fafc;
+}
+
+.demo-link:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+.download-link {
+    background-color: #059669;
+    color: #f8fafc;
+}
+
+.download-link:hover {
+    background-color: #047857;
+    transform: translateY(-2px);
+}
+
+.link-icon {
+    font-size: 1rem;
+}
+
+/* Contact Section */
+.contact {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: #f1f5f9;
+}
+
+.contact .section-title {
+    color: #f8fafc;
+}
+
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background-color: rgba(51, 65, 85, 0.5);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #475569;
+}
+
+.contact-label {
+    font-weight: 600;
+    min-width: 80px;
+    color: #cbd5e1;
+}
+
+.contact-link {
+    color: #3b82f6;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.contact-link:hover {
+    border-bottom-color: #3b82f6;
+    color: #60a5fa;
+}
+
+.cv-download {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #475569;
+}
+
+.cv-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    color: #f8fafc !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+.cv-link:hover {
+    background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(5, 150, 105, 0.4);
+    border-color: #10b981;
+}
+
+.cv-icon {
+    font-size: 1.1rem;
+}
+
+/* Scroll to top button styles */
+.scroll-to-top:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4) !important;
+}
+
+/* Footer */
+.footer {
+    background-color: #0f172a;
+    color: #94a3b8;
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid #1e293b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .name {
+        font-size: 2.2rem;
+    }
+    
+    .tagline {
+        font-size: 1rem;
+    }
+    
+    .nav {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .section {
+        padding: 3rem 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+        text-align: left;
+        margin-bottom: 1.2rem;
+    }
+    
+    .education-item {
+        padding: 1.5rem;
+    }
+    
+    .education-progress-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .education-progress-container {
+        gap: 2rem;
+        margin-top: 1.5rem;
+    }
+    
+    .circular-progress {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .progress-ring {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .progress-ring-circle,
+    .progress-ring-bar {
+        r: 42;
+        cx: 50;
+        cy: 50;
+        stroke-width: 6;
+    }
+    
+    .progress-value {
+        font-size: 1rem;
+    }
+    
+    .progress-label {
+        font-size: 0.8rem;
+    }
+    
+    .progress-bar {
+        width: 100%;
+        min-width: auto;
+        height: 10px;
+    }
+    
+    .progress-label {
+        font-size: 0.9rem;
+    }
+    
+    .progress-percent {
+        align-self: flex-end;
+        font-size: 0.8rem;
+    }
+    
+    .skill-item-progress {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+    
+    .skill-name {
+        min-width: auto;
+        font-size: 0.9rem;
+    }
+    
+    .skill-item-progress .progress-bar {
+        height: 8px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-card {
+        padding: 1.5rem;
+    }
+    
+    .project-links {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .project-link {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+    
+    .contact-label {
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .header {
+        padding: 1.5rem 0;
+    }
+    
+    .name {
+        font-size: 1.8rem;
+    }
+    
+    .tagline {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .section {
+        padding: 2rem 0;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+    }
+    
+    .about-text p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    
+    .project-card,
+    .skill-category {
+        padding: 1rem;
+    }
+    
+    .education-item {
+        padding: 1rem;
+    }
+    
+    .education-degree {
+        font-size: 1.2rem;
+    }
+    
+    .education-school {
+        font-size: 1rem;
+    }
+    
+    .education-progress-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .education-progress-container {
+        gap: 1.5rem;
+        margin-top: 1rem;
+    }
+    
+    .circular-progress {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .progress-ring {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .progress-ring-circle,
+    .progress-ring-bar {
+        r: 32;
+        cx: 40;
+        cy: 40;
+        stroke-width: 5;
+    }
+    
+    .progress-value {
+        font-size: 0.9rem;
+    }
+    
+    .progress-label {
+        font-size: 0.7rem;
+    }
+    
+    .progress-label {
+        min-width: auto;
+        font-size: 0.8rem;
+    }
+    
+    .progress-bar {
+        height: 12px;
+    }
+    
+    .progress-percent {
+        font-size: 0.75rem;
+    }
+    
+    .skill-category-title {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .skill-item-progress {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 0.75rem;
+    }
+    
+    .skill-name {
+        min-width: auto;
+        font-size: 0.8rem;
+    }
+    
+    .nav {
+        gap: 0.5rem;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Accessibility and Security Enhancements */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus styles for better accessibility */
+.nav-link:focus,
+.contact-link:focus,
+.project-link:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Selection styles */
+::selection {
+    background-color: #3b82f6;
+    color: #f8fafc;
+}
+
+/* Scrollbar styling for webkit browsers */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .header {
+        position: static;
+        background: #333 !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .section {
+        page-break-inside: avoid;
+        padding: 1rem 0;
+        background: white !important;
+    }
+    
+    .project-card,
+    .course-item,
+    .skill-category,
+    .education-item {
+        page-break-inside: avoid;
+        background: white !important;
+        border: 1px solid #ccc !important;
+        color: black !important;
+    }
+    
+    .project-links,
+    .contact-link {
+        display: none;
+    }
+}
